@@ -14,37 +14,42 @@ function guess () {
 
 
 // capturing user input: 
-document.onekeyup = funtion (event); {
-    var playerGuess = event.key;
-//correct guesses: if 
-    if (playerGuess === randomLetter){
-        win++;
-        attempts = 10
-        guessedLetters = [];
-    }
-}
+  
     //incorrect guesses: if 
   guess();  
+  document.onkeyup = function (event) {
+    var playerGuess = event.key;
+    console.log(playerGuess);
     if (playerGuess !== randomLetter){
-        attetmpts--; 
-    }
-    //running out of guesses, empties guessedLetters and resets attempts
-    if (attempts == 0);{
-        losses ++;
-        guessedLetters = [];
-        attempts = 10
-    }
-    //output of incorrect guesses 
-    if (guessedLetters.indexOf(playerGuess) >=0);{
-    
-     } else {
-         guessedLetters.push(playerGuess);
-         document.getElementById("alreadyguessed").innerHTML = guessedLetters;
-         console.log(guessedLetters);
+        attempts--; 
+        console.log(attempts);
+        //document.querySelector("#remainingguess").innerHTML = attempts
+        //document.getElementById("remainingguess").innerHTML = attempts
+        guessedLetters.push(playerGuess);
+        console.log(guessedLetters);
+        console.log("not equal");
+        if (attempts == 0){
+            losses++;
         }
-    
-        
-//Display: push to inner html
+    } else if(playerGuess === randomLetter) {
+        console.log("equal");
+        win++
+        console.log(win);
+    //call reset function    
+    }
 
+    //reset function: empty guessed letters array, reset attempts to 10, new random letter, clear/reset html
 
-    
+    //running out of guesses, empties guessedLetters and resets attempts
+    // // if (attempts == 0);{
+    //     losses ++;
+    //     guessedLetters = [];
+    //     attempts = 10
+   // }
+    //output of incorrect guesses 
+    // if (guessedLetters.indexOf(playerGuess) >=0);{
+    //      document.getElementById("alreadyguessed").innerHTML = guessedLetters;
+    //      console.log(guessedLetters);
+        }
+    // }
+//Display: push to inner HTML 
